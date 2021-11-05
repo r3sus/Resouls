@@ -1,4 +1,15 @@
-7fff235a640 ci
+You picked FreeCameraOperator@@ 
+Scanning for 157d0a0 
+found 2 results 
+140995da0 
+140995df4 
+after checking only 1 left 
+Scanning for 140995da0 
+1407ac518 
+1 vtables found 
+Scanning for 1407ac518 
+The following instances of the class FreeCameraOperator@@ where found 
+7fff235a0f0 
 
 -- Camera
 
