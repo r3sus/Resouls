@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>969</ID>
+      <Description>"Compact Mode 2"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+function cycleFullCompact(sender,force)
+local state = not(compactmenuitem.Caption == 'Compact View Mode');
+if force~=nil then state = not force end;
+compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode';
+getMainForm().Splitter1.Visible = state;
+getMainForm().Panel4.Visible = state;
+getMainForm().Panel5.Visible = state;
+end;
+function addCompactMenu()
+if compactmenualreadyexists then return end;
+local parent = getMainForm().Menu.Items;
+compactmenuitem = createMenuItem(parent);
+parent.add(compactmenuitem);
+compactmenuitem.Caption = 'Compact View Mode';
+compactmenuitem.OnClick = cycleFullCompact;
+compactmenualreadyexists = 'yes';
+end;
+addCompactMenu();
+cycleFullCompact(nil,true)
+
+[DISABLE]
+{$Lua}
+cycleFullCompact(nil,false)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>678</ID>
+      <Description>"msg"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+print([[
+HUD elements visibility is controlled by 0-255 value - transparency degree
+]])
+
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>663</ID>
+      <Description>""</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"Black_Frame"</Description>
+          <LastState Value="0" RealAddress="7FFEB6E89A8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB6E89A8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"save"</Description>
+          <LastState Value="0" RealAddress="7FFEB6E8A58"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB6E8A58</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"HP"</Description>
+          <LastState Value="255" RealAddress="7FFEB730C98"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB730C98</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"Souls_2"</Description>
+          <LastState Value="255" RealAddress="7FFEB738BD8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB738BD8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Rest_BF"</Description>
+          <LastState Value="0" RealAddress="7FFEB76F128"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB76F128</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>112</ID>
+          <Description>"Item Slot"</Description>
+          <LastState Value="255" RealAddress="7FFEB74D638"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB74D638</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>665</ID>
+      <Description>"main_menu"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>666</ID>
+          <Description>"Copyright (bottom)"</Description>
+          <LastState Value="0" RealAddress="7FFEB78E4F8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB78E4F8</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>667</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="0" RealAddress="7FFEB78E5A8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+b0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>668</ID>
+          <Description>"Menu entries and corner text"</Description>
+          <LastState Value="255" RealAddress="7FFEB78E918"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB78E918</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>669</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="176" RealAddress="7FFEB78E9C8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+b0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>670</ID>
+          <Description>"O*line Mode"</Description>
+          <LastState Value="0" RealAddress="7FFEB791228"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB791228</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>671</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="0" RealAddress="7FFEB7912D8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+b0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>672</ID>
+          <Description>"Calibration_ver"</Description>
+          <LastState Value="0" RealAddress="7FFEB791418"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB791418</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>673</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="128" RealAddress="7FFEB7914C8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+b0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>674</ID>
+          <Description>"Calibration"</Description>
+          <LastState Value="211" RealAddress="7FFEB791608"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB791608</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>675</ID>
+          <Description>"Logo"</Description>
+          <LastState Value="255" RealAddress="7FFEB793E58"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB793E58</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>676</ID>
+          <Description>"Logo_Blurry_Loading"</Description>
+          <LastState Value="137" RealAddress="7FFEB7954B8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB7954B8</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>679</ID>
+      <Description>"slots"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>680</ID>
+          <Description>"Right_Wep"</Description>
+          <LastState Value="255" RealAddress="7FFEB748AF8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB748AF8</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>681</ID>
+              <Description>"Bottom"</Description>
+              <LastState Value="255" RealAddress="7FFEB748DB8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+DB0-AF0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>682</ID>
+                  <Description>"No Description"</Description>
+                  <LastState Value="255" RealAddress="7FFEB748E68"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E68-DB8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>683</ID>
+              <Description>"Frame"</Description>
+              <LastState Value="255" RealAddress="7FFEB748D08"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+D08-AF8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>684</ID>
+              <Description>"Fill"</Description>
+              <LastState Value="248" RealAddress="7FFEB748C58"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+C58-AF8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>685</ID>
+          <Description>"Left_Wep"</Description>
+          <LastState Value="255" RealAddress="7FFEB74A068"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB74A068</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>686</ID>
+              <Description>"Bottom"</Description>
+              <LastState Value="255" RealAddress="7FFEB74A328"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+DB0-AF0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>687</ID>
+                  <Description>"No Description"</Description>
+                  <LastState Value="151" RealAddress="7FFEB74A3D8"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E68-DB8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>688</ID>
+              <Description>"Frame"</Description>
+              <LastState Value="255" RealAddress="7FFEB74A278"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+D08-AF8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>689</ID>
+              <Description>"Fill"</Description>
+              <LastState Value="248" RealAddress="7FFEB74A1C8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+C58-AF8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>690</ID>
+          <Description>"DurabilityL"</Description>
+          <LastState Value="255" RealAddress="7FFEB74D428"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB74D428</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>691</ID>
+          <Description>"Items_2"</Description>
+          <LastState Value="255" RealAddress="7FFEB74D638"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB74D638</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>692</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="255" RealAddress="7FFEB74D6E8"/>
+              <VariableType>Byte</VariableType>
+              <Address>7FFEB74D6E8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>693</ID>
+          <Description>"Spells"</Description>
+          <LastState Value="255" RealAddress="7FFEB751A28"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB751A28</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>694</ID>
+          <Description>"DB"</Description>
+          <LastState Value="128" RealAddress="7FFEB754C48"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB754C48</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>695</ID>
+              <Description>"No Description"</Description>
+              <LastState Value="255" RealAddress="7FFEB754CF8"/>
+              <VariableType>Byte</VariableType>
+              <Address>7FFEB754CF8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>696</ID>
+          <Description>"Left Corner"</Description>
+          <LastState Value="255" RealAddress="7FFEB730C98"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB730C98</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>697</ID>
+          <Description>"Strip"</Description>
+          <LastState Value="128" RealAddress="7FFEB730EE8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB730EE8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>698</ID>
+          <Description>"Stamina_Frame"</Description>
+          <LastState Value="255" RealAddress="7FFEB731118"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB731118</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>699</ID>
+          <Description>"HP_F"</Description>
+          <LastState Value="255" RealAddress="7FFEB731268"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB731268</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>700</ID>
+          <Description>"HP_Fill"</Description>
+          <LastState Value="255" RealAddress="7FFEB731A28"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB731A28</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>677</ID>
+      <Description>"hud_render_code_hooks"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+
+print([[
+render, hit/s
+140B627BF - 0FB6 87 98000000  - movzx eax,byte ptr [rdi+00000098]
+140B62851 - 80 BF 98000000 FF - cmp byte ptr [rdi+00000098],-01
+140B6292F - 0FB6 83 98000000  - movzx eax,byte ptr [rbx+00000098]
+140B629A3 - 80 BB 98000000 FF - cmp byte ptr [rbx+00000098],-01
+]])
+
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>effect</Name>
+      <Address>1415441B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bullet</Name>
+      <Address>13FB8838F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>goods</Name>
+      <Address>13FA79445</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>move</Name>
+      <Address>141533D42</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>damage</Name>
+      <Address>141675C03</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>geareffects</Name>
+      <Address>13F97B15B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>WepAtkStruct</Name>
+      <Address>7FFEB590574</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_edgy</Name>
+      <Address>7FF4C930663C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_sprint</Name>
+      <Address>7FF4C2DE6658</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_bomb</Name>
+      <Address>7FF4C2DC55D3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_flip</Name>
+      <Address>7FF4C34DB51C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_circle</Name>
+      <Address>7FF4C2DB9F53</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_hail</Name>
+      <Address>7FF4C34DB42C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_multi</Name>
+      <Address>7FF4C2DB6213</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_2h</Name>
+      <Address>7FF4C34D21EC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_1h</Name>
+      <Address>7FF4C34D1E2C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_pursuers</Name>
+      <Address>7FF4C2DA6E53</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_jump</Name>
+      <Address>7FF4C2D91CD3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>RespawnAOB</Name>
+      <Address>13F5A2FF5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>FreeFly</Name>
+      <Address>1403B3CAC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newmem2</Name>
+      <Address>17A11BD0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newmem1</Name>
+      <Address>05E30000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newmem5</Name>
+      <Address>06750000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newmem4</Name>
+      <Address>05E30020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>stone</Name>
+      <Address>7FFEDBCBD48</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bongregion</Name>
+      <Address>7FFEDC5A03C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>chrph</Name>
+      <Address>7FFED6B7004</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Imported3</Name>
+      <Address>7FFEDBBFEF4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GetOnlineBase</Name>
+      <Address>13FF41817</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>LockOnParamMemoryRegion</Name>
+      <Address>7FFEDBDA24C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>REWR</Name>
+      <Address>7FFEDC6E220</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CarPrayerAOB</Name>
+      <Address>7FFECC045B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DisableGravityDeathAOB</Name>
+      <Address>13F5CC01E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>banditaob</Name>
+      <Address>7FFEDDDD4BC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newmem6</Name>
+      <Address>06770000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CCRE</Name>
+      <Address>7FFEDBBC3E4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addressB</Name>
+      <Address>062A0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>NoHollow</Name>
+      <Address>13FE25196</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addressR</Name>
+      <Address>05C20000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PreventSoulLost</Name>
+      <Address>1400462D6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>soulswriteaob</Name>
+      <Address>13FC562D6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addressip</Name>
+      <Address>06750000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ArenaItemsAOB</Name>
+      <Address>13FA078C8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>myaob</Name>
+      <Address>140CEB8D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>myaob2</Name>
+      <Address>140CEDCD8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addresshp</Name>
+      <Address>06770000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>hdp</Name>
+      <Address>7FFEB48AD84</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>statuseffect01</Name>
+      <Address>13FAB3D88</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>warmthp</Name>
+      <Address>7FFEB5E8E8C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>soundSpecialEquipmentParam</Name>
+      <Address>7FFEB50822C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>yearnlights</Name>
+      <Address>7FFEAE6DB78</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>backstablock01</Name>
+      <Address>7FFEB55D170</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bulletregion01</Name>
+      <Address>7FFEAE53ADC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>effectregion01</Name>
+      <Address>7FFEB46BDC0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>advdmgfilter</Name>
+      <Address>13F2E727A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>NameCrashProtectionAOB</Name>
+      <Address>140F8A63B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>facestabmytha01</Name>
+      <Address>7FFEB5A0E66</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>snipermytha01</Name>
+      <Address>7FFEB5DD514</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>target_inj</Name>
+      <Address>140405FA2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addressE</Name>
+      <Address>01DF0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>NoInventoryStandingStateAOB</Name>
+      <Address>13FE46846</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>moveparam</Name>
+      <Address>7FFEAEB65D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dragonarmor</Name>
+      <Address>7FFEB50E018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MonstersTimescale</Name>
+      <Address>13FECF093</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ChrNetworkAOB</Name>
+      <Address>7FFEAEB7004</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>moveparam_jump</Name>
+      <Address>7FFEAEB65D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ShortBowStatusEffectsAOB</Name>
+      <Address>7FFEB5E6EF8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>address</Name>
+      <Address>05E30000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>addressw</Name>
+      <Address>05E30020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_moveset</Name>
+      <Address>7FFEB56786C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>buff</Name>
+      <Address>0022A48F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>playerCoord</Name>
+      <Address>7FFF2A6CB20</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>stamina</Name>
+      <Address>0033D1FA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>weapon</Name>
+      <Address>003554A4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>armor</Name>
+      <Address>0035530B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ring</Name>
+      <Address>0035540C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>items2</Name>
+      <Address>001C34ED</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>torch</Name>
+      <Address>001C854C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fov</Name>
+      <Address>00B4E3E6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>look</Name>
+      <Address>00349643</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>last_spell</Name>
+      <Address>0044E117</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_str1</Name>
+      <Address>01D0537E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_str2</Name>
+      <Address>00356D13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_dex1</Name>
+      <Address>01A9911C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_dex2</Name>
+      <Address>00356D33</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_int1</Name>
+      <Address>01BDC98D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_int2</Name>
+      <Address>00356D7E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_fth1</Name>
+      <Address>01BDC995</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>req_fth2</Name>
+      <Address>00356DC1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>charges</Name>
+      <Address>001BB6DE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>name_length</Name>
+      <Address>00523DB0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>name_crash</Name>
+      <Address>00C36F96</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>player</Name>
+      <Address>00510885</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>get_name</Name>
+      <Address>00C36F73</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>items</Name>
+      <Address>001BBAFD</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>healingdaggeraob</Name>
+      <Address>7FFEB5DD374</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_replenishment</Name>
+      <Address>7FF4BB963F53</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health</Name>
+      <Address>141748D50</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>freespacee</Name>
+      <Address>1400004B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pBase</Name>
+      <Address>178480000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

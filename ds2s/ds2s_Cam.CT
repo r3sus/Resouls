@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>688</ID>
+      <Description>"Detach Camera (set to 1 twice)"</Description>
+      <LastState Value="0" RealAddress="7FFF235A9F4"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FFF235A9F4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>690</ID>
+      <Description>"DeathCam (TopDown)"</Description>
+      <LastState Value="2" RealAddress="7FFF2359FD8"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FFF2359FD8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>664</ID>
+      <Description>"camOffsetsConst"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>693</ID>
+          <Description>"No Description"</Description>
+          <LastState Value="1" RealAddress="14158DB00"/>
+          <VariableType>Float</VariableType>
+          <Address>14158DB00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>694</ID>
+          <Description>"No Description"</Description>
+          <LastState Value="0" RealAddress="14158DB10"/>
+          <VariableType>Float</VariableType>
+          <Address>14158DB10</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>695</ID>
+          <Description>"No Description"</Description>
+          <LastState Value="0" RealAddress="14158DB20"/>
+          <VariableType>Float</VariableType>
+          <Address>14158DB20</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>696</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="14158DB30"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>14158DB30</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>697</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="1410A4A10"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>1410A4A10</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>698</ID>
+      <Description>"devs"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>691</ID>
+          <Description>"class"</Description>
+          <LastState Value="1091487000" RealAddress="7FFF235A640"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>7fff235a640</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>692</ID>
+          <Description>"angles"</Description>
+          <LastState Value="1061915288" RealAddress="7FFF235A930"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>7fff235a930</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

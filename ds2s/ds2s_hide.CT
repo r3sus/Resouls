@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>969</ID>
+      <Description>"Compact Mode 2"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+function cycleFullCompact(sender,force)
+local state = not(compactmenuitem.Caption == 'Compact View Mode');
+if force~=nil then state = not force end;
+compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode';
+getMainForm().Splitter1.Visible = state;
+getMainForm().Panel4.Visible = state;
+getMainForm().Panel5.Visible = state;
+end;
+function addCompactMenu()
+if compactmenualreadyexists then return end;
+local parent = getMainForm().Menu.Items;
+compactmenuitem = createMenuItem(parent);
+parent.add(compactmenuitem);
+compactmenuitem.Caption = 'Compact View Mode';
+compactmenuitem.OnClick = cycleFullCompact;
+compactmenualreadyexists = 'yes';
+end;
+addCompactMenu();
+cycleFullCompact(nil,true)
+
+[DISABLE]
+{$Lua}
+cycleFullCompact(nil,false)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>968</ID>
+      <Description>"0g_G"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>857</ID>
+          <Description>"0g"</Description>
+          <LastState Value="0" RealAddress="7FFED5F1054"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFED5F1054</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>964</ID>
+          <Description>"Embryo Jump"</Description>
+          <LastState Value="1" RealAddress="7FFED5F101A"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFED5F101A</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>936</ID>
+      <Description>"hud"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>937</ID>
+          <Description>"slots"</Description>
+          <LastState Value="0" RealAddress="7FFEB726518"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>7FFEB726518</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>856</ID>
+          <Description>"souls_counter_T"</Description>
+          <LastState Value="0" RealAddress="7FFEB726CD8"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFEB726CD8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>938</ID>
+          <Description>"Life"</Description>
+          <LastState Value="0" RealAddress="7FFEB726E98"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>7FFEB726E98</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>935</ID>
+      <Description>"char"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>934</ID>
+          <Description>"vis_deg"</Description>
+          <LastState Value="1" RealAddress="7FFED5EBC5C"/>
+          <VariableType>Float</VariableType>
+          <Address>7FFED5EBC5C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>858</ID>
+          <Description>"vis_T"</Description>
+          <LastState Value="1" RealAddress="7FFED5EBBF9"/>
+          <VariableType>Byte</VariableType>
+          <Address>7FFED5EBBF9</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>observe near 0g instructions for cmp const
+</Comments>
+</CheatTable>
