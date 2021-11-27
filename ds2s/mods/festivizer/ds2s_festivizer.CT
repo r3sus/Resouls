@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1008</ID>
+      <Description>"festivizer"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// festivizer = Character Glow Color Randomizer
+
+{$Lua}
+
+hack = true
+rt = 1 -- randomize transparency
+max = 3
+
+--consts
+local oz = 0x7FFED5EBC50
+
+timer = createTimer(getMainForm())
+timer.Interval = 500
+timer.OnTimer = function(timer)
+ for i = 0,max do
+local a = math.random()
+if hack == false then a=1 end
+if rt and i == max then a = 1 end
+writeFloat(oz+i*4,a)
+if hack == false then timer.destroy() end
+--print(a)
+ end
+  end
+
+[DISABLE]
+{$Lua}
+hack = false
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1010</ID>
+          <Description>"Colors"</Description>
+          <LastState Value="" RealAddress="7FFED5EBC4C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>7FFED5EBC50-4</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1009</ID>
+              <Description>"R"</Description>
+              <LastState Value="1" RealAddress="7FFED5EBC50"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1011</ID>
+              <Description>"G"</Description>
+              <LastState Value="1" RealAddress="7FFED5EBC54"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1012</ID>
+              <Description>"B"</Description>
+              <LastState Value="1" RealAddress="7FFED5EBC58"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1013</ID>
+              <Description>"A"</Description>
+              <LastState Value="1" RealAddress="7FFED5EBC5C"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+10</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>969</ID>
+      <Description>"Compact Mode 2"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+function cycleFullCompact(sender,force)
+local state = not(compactmenuitem.Caption == 'Compact View Mode');
+if force~=nil then state = not force end;
+compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode';
+getMainForm().Splitter1.Visible = state;
+getMainForm().Panel4.Visible = state;
+getMainForm().Panel5.Visible = state;
+end;
+function addCompactMenu()
+if compactmenualreadyexists then return end;
+local parent = getMainForm().Menu.Items;
+compactmenuitem = createMenuItem(parent);
+parent.add(compactmenuitem);
+compactmenuitem.Caption = 'Compact View Mode';
+compactmenuitem.OnClick = cycleFullCompact;
+compactmenualreadyexists = 'yes';
+end;
+addCompactMenu();
+cycleFullCompact(nil,true)
+
+[DISABLE]
+{$Lua}
+cycleFullCompact(nil,false)
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>observe near 0g instructions for cmp const
+</Comments>
+</CheatTable>
