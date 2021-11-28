@@ -1,0 +1,61 @@
+# no logo
+
+scanning for val changes near class
+
+7FFEB76(3/4)2D0 
+
+@ todo: launch script
+
+# 227 
+7FFEB7634F9
+
+1400FDFAC - 48 89 48 18  - mov [rax+18],rcx
+1400FE736 - 49 89 49 18  - mov [r9+18],rcx
+1400F9180 - 48 8B 51 18  - mov rdx,[rcx+18]
+1400FE026 - 49 89 49 18  - mov [r9+18],rcx
+1400FE0BF - 48 89 48 18  - mov [rax+18],rcx
+
+# 5 
+7FFEB7634E8
+
+1400FDF90 - C7 40 08 17000000 - mov [rax+08],00000017
+1400FE724 - 44 89 40 08  - mov [rax+08],r8d
+140104570 - 8B 77 08  - mov esi,[rdi+08]
+1400FE014 - 44 89 40 08  - mov [rax+08],r8d
+1400FE0A3 - C7 40 08 05000000 - mov [rax+08],00000005
+
+# loop var 1
+7FFEB7632F0
+
+1400FEB39 - 8B 49 20  - mov ecx,[rcx+20]
+1400F918F - 39 02  - cmp [rdx],eax
+1400FEC3C - C7 43 20 03000000 - mov [rbx+20],00000003
+1400FEB9F - C7 43 20 04000000 - mov [rbx+20],00000004
+1400FE787 - C7 43 20 00000000 - mov [rbx+20],00000000
+
+# loop var 2
+7FFEB763320
+
+1400FD450 - 89 41 20  - mov [rcx+20],eax
+1400FD92E - C7 43 20 01000000 - mov [rbx+20],00000001
+1400FEB39 - 8B 49 20  - mov ecx,[rcx+20]
+1400F918F - 39 02  - cmp [rdx],eax
+1400FECB0 - C7 43 20 02000000 - mov [rbx+20],00000002
+1400FEC3C - C7 43 20 03000000 - mov [rbx+20],00000003
+1400FEB9F - C7 43 20 04000000 - mov [rbx+20],00000004
+1400FE787 - C7 43 20 00000000 - mov [rbx+20],00000000
+
+# function limits
+FE[B30-BAB]
+FE[BDB-C4F]
+
+# interesting function
+DarkSoulsII.exe.text+FDB20 - C6 05 D3625001 00     - mov byte ptr [DarkSoulsII.exe+1604DFA],00 { (1),0 }
+
+mov byte ptr [141604DFA],00
+
+let's put 1 here
+
+# test 01
+DarkSoulsII.exe.text+FDC7F - F6 40 34 01           - 
+test byte ptr [rax+34],01 { 1 }
