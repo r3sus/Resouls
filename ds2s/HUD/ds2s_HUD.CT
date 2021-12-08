@@ -36,7 +36,7 @@ cycleFullCompact(nil,false)
     <CheatEntry>
       <ID>678</ID>
       <Description>"msg"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$Lua}
@@ -50,7 +50,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
     </CheatEntry>
     <CheatEntry>
       <ID>663</ID>
-      <Description>""</Description>
+      <Description>"basic"</Description>
       <Options moHideChildren="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
@@ -86,7 +86,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
         <CheatEntry>
           <ID>16</ID>
           <Description>"Rest_BF"</Description>
-          <LastState Value="0" RealAddress="7FFEB76F128"/>
+          <LastState Value="255" RealAddress="7FFEB76F128"/>
           <VariableType>Byte</VariableType>
           <Address>7FFEB76F128</Address>
         </CheatEntry>
@@ -201,7 +201,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
       <ID>679</ID>
       <Description>"slots"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
@@ -240,7 +240,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
             <CheatEntry>
               <ID>684</ID>
               <Description>"Fill"</Description>
-              <LastState Value="248" RealAddress="7FFEB748C58"/>
+              <LastState Value="255" RealAddress="7FFEB748C58"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>+C58-AF8</Address>
@@ -294,7 +294,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
         <CheatEntry>
           <ID>690</ID>
           <Description>"DurabilityL"</Description>
-          <LastState Value="255" RealAddress="7FFEB74D428"/>
+          <LastState Value="0" RealAddress="7FFEB74D428"/>
           <VariableType>Byte</VariableType>
           <Address>7FFEB74D428</Address>
         </CheatEntry>
@@ -347,7 +347,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
         <CheatEntry>
           <ID>697</ID>
           <Description>"Strip"</Description>
-          <LastState Value="128" RealAddress="7FFEB730EE8"/>
+          <LastState Value="255" RealAddress="7FFEB730EE8"/>
           <VariableType>Byte</VariableType>
           <Address>7FFEB730EE8</Address>
         </CheatEntry>
@@ -368,7 +368,7 @@ HUD elements visibility is controlled by 0-255 value - transparency degree
         <CheatEntry>
           <ID>700</ID>
           <Description>"HP_Fill"</Description>
-          <LastState Value="255" RealAddress="7FFEB731A28"/>
+          <LastState Value="100" RealAddress="7FFEB731A28"/>
           <VariableType>Byte</VariableType>
           <Address>7FFEB731A28</Address>
         </CheatEntry>
