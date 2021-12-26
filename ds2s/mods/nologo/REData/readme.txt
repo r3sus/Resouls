@@ -6,7 +6,7 @@ skip the 3 logos at game launch
 
 write byte = 1 and logo wouldn't appear
 
-DarkSoulsII.exe+1604DFA (141604DFA)
+DarkSoulsII.exe+1604DFA
 
 - usage - 
 

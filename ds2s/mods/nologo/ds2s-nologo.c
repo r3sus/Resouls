@@ -22,8 +22,8 @@ void setup_d8proxy(void)
 void attach_hook(void)
 {
 
-*(BYTE*)0x141604DFA = 0x01;
-//*(BYTE*)0x1400FD880 = 0x94; -- alternative option: code alteration: setne => sete, use either
+void *base_addr = GetModuleHandle(NULL);
+*(byte*)(base_addr + 0x1604DFA) = 0x01;
 
 }	
 BOOL APIENTRY DllMain(HMODULE mod, DWORD reason,
