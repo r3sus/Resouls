@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>220</ID>
+      <Description>"Find Player Heap"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+local MS=createMemScan()
+
+MS.firstScan(soExactValue, vtString, rtRounded, 'Player Heap', '',
+0 , 0x00007fffffffffff ,
+"+W-X-C" ,fsmNotAligned ,'1' ,false ,true, false, true);
+
+MS.waitTillDone()
+
+MSL = createFoundList(MS)
+MSL.initialize()
+MS.destroy()
+
+print(MSL.Address[0])
+
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>221</ID>
+      <Description>"Player Heap"</Description>
+      <LastState RealAddress="7FFE9F503A8"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>String</VariableType>
+      <Length>16</Length>
+      <Unicode>0</Unicode>
+      <CodePage>0</CodePage>
+      <ZeroTerminate>1</ZeroTerminate>
+      <Address>$MSL.Address[0]</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>222</ID>
+          <Description>"GameManagerImp"</Description>
+          <LastState RealAddress="7FFE9F50260"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>0</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>-148</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>223</ID>
+              <Description>"quit = 6"</Description>
+              <LastState Value="0" RealAddress="7FFE9F52711"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+24b1</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys/>
+                  <Value>6</Value>
+                  <Description>quit to menu / set your HK</Description>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
