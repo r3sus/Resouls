@@ -1,10 +1,10 @@
 - ds2s fast quit -
 
-hotkey to quit to main menu
+quit to main menu by setting value with CE
+set hotkey to do it fast
 
 - usage -
 
-activate the script
 click on quit, Ctrl + H, edit HK => set yours
 save
 
