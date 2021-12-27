@@ -2,17 +2,17 @@
 
 hotkey to quit to main menu
 
-- setting up -
+- usage -
 
-for the first time only:
 activate the script
-copy the address
-it should be always the same on a single machine (or with similar cfg)
-replace the PH adr with this value  
 click on quit, Ctrl + H, edit HK => set yours
 save
 
 make sure to setup auto-attach in settings, so CE auto hooks the game, even if you restart
+
+- credits -
+
+Atvaark - scan algho for player base 
 
 - how it was figured -
 
