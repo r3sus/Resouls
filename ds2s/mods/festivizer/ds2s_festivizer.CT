@@ -7,27 +7,25 @@
       <Options moHideChildren="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-
-// festivizer = Character Glow Color Randomizer
-
+      <AssemblerScript>// festivizer = Character Glow Color Randomizer
+[ENABLE]
 {$Lua}
 
 hack = true
-rt = 1 -- randomize transparency
-max = 3
+local rt = 0 -- 1 - randomize transparency
+local max = 2 + rt
 
---consts
-local oz = 0x7FFED5EBC50
+local AL = getAddressList()
+local oz = AL.getMemoryRecordByDescription('R').CurrentAddress
 
-timer = createTimer(getMainForm())
+if oz == 0 or not targetIs64Bit() then a=b+c end
+
+local timer = createTimer(getMainForm())
 timer.Interval = 500
 timer.OnTimer = function(timer)
  for i = 0,max do
 local a = math.random()
 if hack == false then a=1 end
-if rt and i == max then a = 1 end
 writeFloat(oz+i*4,a)
 if hack == false then timer.destroy() end
 --print(a)
@@ -38,48 +36,40 @@ if hack == false then timer.destroy() end
 {$Lua}
 hack = false
 </AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1018</ID>
+      <Description>"R"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>DarkSoulsII.exe+160B8D0</Address>
+      <Offsets>
+        <Offset>+ee0</Offset>
+        <Offset>+30</Offset>
+        <Offset>+378</Offset>
+        <Offset>+d0</Offset>
+      </Offsets>
       <CheatEntries>
         <CheatEntry>
-          <ID>1010</ID>
-          <Description>"Colors"</Description>
-          <LastState Value="" RealAddress="7FFED5EBC4C"/>
+          <ID>1009</ID>
+          <Description>"G"</Description>
           <ShowAsSigned>0</ShowAsSigned>
-          <GroupHeader>1</GroupHeader>
-          <Address>7FFED5EBC50-4</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>1009</ID>
-              <Description>"R"</Description>
-              <LastState Value="1" RealAddress="7FFED5EBC50"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Float</VariableType>
-              <Address>+4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1011</ID>
-              <Description>"G"</Description>
-              <LastState Value="1" RealAddress="7FFED5EBC54"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Float</VariableType>
-              <Address>+8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1012</ID>
-              <Description>"B"</Description>
-              <LastState Value="1" RealAddress="7FFED5EBC58"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Float</VariableType>
-              <Address>+C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1013</ID>
-              <Description>"A"</Description>
-              <LastState Value="1" RealAddress="7FFED5EBC5C"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Float</VariableType>
-              <Address>+10</Address>
-            </CheatEntry>
-          </CheatEntries>
+          <VariableType>Float</VariableType>
+          <Address>+4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1011</ID>
+          <Description>"B"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>+8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1012</ID>
+          <Description>"A"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>+C</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
