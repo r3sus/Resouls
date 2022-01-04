@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>30782</ID>
+      <Description>"nomsg"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+define(nomsg,$process + 0x4F7136)
+nomsg:
+db 74
+ 
+[DISABLE]
+nomsg:
+db 75
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30781</ID>
+      <Description>"nomsg"</Description>
+      <DropDownList ReadOnly="1" DisplayValueAsItem="1">75:msg
+74:nomsg
+</DropDownList>
+      <ShowAsHex>1</ShowAsHex>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>$process + 0x4F7136</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30785</ID>
+      <Description>"msg_ctrl"</Description>
+      <DropDownList DisplayValueAsItem="1">4:close
+2:open
+</DropDownList>
+      <VariableType>Byte</VariableType>
+      <Address>"DarkSoulsII.exe"+01604DF0</Address>
+      <Offsets>
+        <Offset>B8</Offset>
+        <Offset>F8</Offset>
+        <Offset>460</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
