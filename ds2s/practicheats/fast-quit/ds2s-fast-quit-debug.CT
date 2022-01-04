@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>30542</ID>
+      <Description>"QUIT = 6"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <LastState Value="0" RealAddress="7FFE9F52711"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>[DarkSoulsII.exe+160B8D0]+24b1</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys/>
+          <Value>6</Value>
+          <Description>quit to menu / set your HK</Description>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>30544</ID>
+          <Description>"GameManagerImp"</Description>
+          <LastState RealAddress="7FFE9F50260"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>0</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>-24b1</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>30543</ID>
+              <Description>"should be 'Player Heap'"</Description>
+              <LastState RealAddress="7FFE9F503A8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>16</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+148</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30533</ID>
+              <Description>"if not, use this (AoB)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$Lua}
+autoAssemble([[
+aobscanmodule(Findit2,DarkSoulsII.exe,89 BB C0 00 00 00 48 8B 05)
+registersymbol(Findit2)
+]])
+local addr = getAddress("Findit2") + 9
+addr = addr + readInteger(addr) + 4
+registerSymbol("BaseA", addr, true)
+
+[DISABLE]
+unregisterSymbol(BaseA)
+unregisterSymbol(Findit2)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>30545</ID>
+                  <Description>"QUIT = 6"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>[baseA]+24b1</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys/>
+                      <Value>6</Value>
+                      <Description>quit to menu / set your HK</Description>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>30546</ID>
+                      <Description>"GameManagerImp"</Description>
+                      <LastState RealAddress="FFFFFFFFFFFFDB4F"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>0</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>-24b1</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>30547</ID>
+                          <Description>"should be 'Player Heap'"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>String</VariableType>
+                          <Length>16</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>+148</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
