@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>30782</ID>
+      <Description>"nopsb"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+define(nopsb,DarkSoulsII.exe+FDAA6)
+nopsb:
+db 02
+ 
+[DISABLE]
+nopsb:
+db 01
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30781</ID>
+      <Description>"nopsb"</Description>
+      <DropDownList ReadOnly="1" DisplayValueAsItem="1">01:psb
+02:nopsb
+</DropDownList>
+      <LastState Value="01" RealAddress="1400FDAA6"/>
+      <ShowAsHex>1</ShowAsHex>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>DarkSoulsII.exe+FDAA6</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30840</ID>
+      <Description>"psb_ctrl"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>30842</ID>
+          <Description>"nopsb = 2"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30837</ID>
+          <Description>"pointerscan result"</Description>
+          <LastState Value="0" RealAddress="7FFEB73E3D0"/>
+          <VariableType>Byte</VariableType>
+          <Address>"DarkSoulsII.exe"+01604DF0</Address>
+          <Offsets>
+            <Offset>10</Offset>
+            <Offset>498</Offset>
+            <Offset>58</Offset>
+            <Offset>F0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30838</ID>
+          <Description>"pointerscan result"</Description>
+          <LastState Value="0" RealAddress="7FFEB73E3D0"/>
+          <VariableType>Byte</VariableType>
+          <Address>"DarkSoulsII.exe"+01604DF0</Address>
+          <Offsets>
+            <Offset>60</Offset>
+            <Offset>1A0</Offset>
+            <Offset>70</Offset>
+            <Offset>D0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30839</ID>
+          <Description>"pointerscan result"</Description>
+          <LastState Value="0" RealAddress="7FFEB73E3D0"/>
+          <VariableType>Byte</VariableType>
+          <Address>"DarkSoulsII.exe"+01682340</Address>
+          <Offsets>
+            <Offset>60</Offset>
+            <Offset>110</Offset>
+            <Offset>28</Offset>
+            <Offset>58</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
