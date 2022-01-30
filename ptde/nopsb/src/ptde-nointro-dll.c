@@ -19,8 +19,6 @@ void asm_psb_sig() { asm ("mov [esi+0x118],bl; .byte 0xC6; "); };
 
 void asm_nopsb() { asm ("mov byte ptr [esi+0x10c],01; ret 4; "); }
 
-void asm_nomsg() { asm ("mov [eax+0x60],edi; ret 8; "); }
-
 void attach_hook(void)
 {
 
@@ -31,12 +29,6 @@ void attach_hook(void)
 void *x = sigscan(asm_psb_sig, 'a');
 
 wp(x-0xFD+0x4E, asm_nopsb, 'a');
-
-DWORD msg_sig = 0x581C46C7;
-
-x = sigscan(&msg_sig, 'b');
-
-wp(x-0x96+0x55, asm_nomsg, 'a');
 
 }
 

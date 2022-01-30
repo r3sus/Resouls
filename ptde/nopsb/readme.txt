@@ -1,6 +1,5 @@
-~ nopsb x nomsg ~
+~ nopsb ~
 no press start button
-no offline mode message
 
 ~
 CT for tests

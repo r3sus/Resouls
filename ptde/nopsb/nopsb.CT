@@ -20,26 +20,6 @@ inopsb:
 ret 4
 </AssemblerScript>
     </CheatEntry>
-    <CheatEntry>
-      <ID>42</ID>
-      <Description>"nomsg2"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-aobscanmodule(inomsg,DARKSOULS.exe,C7 46 1C 58)
-
-define(inomsg,inomsg-0x96+0x55)
-
-inomsg:
-//mov byte ptr [eax+60],00
-mov [eax+60],edi
-ret 8
-
-[DISABLE]
-inomsg:
-ret 8
-</AssemblerScript>
-    </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
 </CheatTable>
