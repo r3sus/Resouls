@@ -1,3 +1,9 @@
+Dark Souls Remastered - No Logo
+
+~
+to use with other mods, add in their name or put in folder _load_
+
+~
 DLL implementation of wulf2k's work
 
 https://www.reddit.com/r/DarkSoulsMods/comments/a12yuk/dark_souls_remastered_nologo/
