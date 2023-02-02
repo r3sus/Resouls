@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Ensure to put this CT to movWW (or any other subfolder inside DATA)"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"PTDE Fix Launch Slowdown with Gamepad - File Patcher (Lua)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : DARKSOULS.exe
+  Version: 
+  Date   : 2023-01-31
+  Author : user
+
+  This script does blah blah blah
+}
+
+{$Lua}
+local x1 = {}
+x1[6] = "../DARKSOULS.exe"
+openFileAsProcess(x1[6])
+x1[1] = '? 0F 8D 46 14'
+x1[2] = AOBScanUnique(x1[1])
+x1[3] = readByte(x1[2])
+x1[4] = 0x74
+x1[5] = 'Restor'
+if x1[3] == x1[4] then x1[4] = 0xEB;x1[5]='Patch' end
+writeByte(x1[2],x1[4])
+saveOpenedFile(x1[6])
+showMessage(x1[5]..'ed')
+
+{$asm}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{
+// ORIGINAL CODE - INJECTION POINT: DARKSOULS.exe+181591
+
+DARKSOULS.exe+18157B: CC                    - int 3 
+DARKSOULS.exe+18157C: CC                    - int 3 
+DARKSOULS.exe+18157D: CC                    - int 3 
+DARKSOULS.exe+18157E: CC                    - int 3 
+DARKSOULS.exe+18157F: CC                    - int 3 
+DARKSOULS.exe+181580: 56                    - push esi
+DARKSOULS.exe+181581: 8B 74 24 08           - mov esi,[esp+08]
+DARKSOULS.exe+181585: 57                    - push edi
+DARKSOULS.exe+181586: 8B 7C 24 10           - mov edi,[esp+10]
+DARKSOULS.exe+18158A: 80 BF 35 01 00 00 00  - cmp byte ptr [edi+00000135],00
+// ---------- INJECTING HERE ----------
+DARKSOULS.exe+181591: 74 0F                 - je DARKSOULS.exe+1815A2
+// ---------- DONE INJECTING  ----------
+DARKSOULS.exe+181593: 8D 46 14              - lea eax,[esi+14]
+DARKSOULS.exe+181596: 50                    - push eax
+DARKSOULS.exe+181597: 8B CF                 - mov ecx,edi
+DARKSOULS.exe+181599: E8 A2 EE FF FF        - call DARKSOULS.exe+180440
+DARKSOULS.exe+18159E: 85 C0                 - test eax,eax
+DARKSOULS.exe+1815A0: 75 30                 - jne DARKSOULS.exe+1815D2
+DARKSOULS.exe+1815A2: 83 C6 04              - add esi,04
+DARKSOULS.exe+1815A5: 68 74 C7 13 01        - push DARKSOULS.exe+D3C774
+DARKSOULS.exe+1815AA: 56                    - push esi
+DARKSOULS.exe+1815AB: E8 20 EE FF FF        - call DARKSOULS.exe+1803D0
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
