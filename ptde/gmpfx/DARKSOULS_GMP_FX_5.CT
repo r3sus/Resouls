@@ -2,16 +2,230 @@
 <CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
-      <ID>5</ID>
-      <Description>"Ensure to put this CT to movWW (or any other subfolder inside DATA)"</Description>
+      <ID>30595</ID>
+      <Description>"PTDE Gamepad Slowing Launch Fix V1"</Description>
       <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>4</ID>
-          <Description>"PTDE Fix Launch Slowdown with Gamepad - File Patcher (Lua)"</Description>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : DARKSOULS.exe
+          <ID>30598</ID>
+          <Description>"Verification script (Temporary - works until quit)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>30599</ID>
+              <Description>"Ensure to launch the game."</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>30600</ID>
+                  <Description>"Activate"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : DARKSOULS.exe
+  Version: 
+  Date   : 2023-02-16
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+luacall( openProcess("DARKSOULS.exe") )
+aobscanmodule(INJECTa,$process,6A 0? 50 FF D2 5E) // should be unique
+INJECTa:
+  push 01
+
+registersymbol(INJECTa)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECTa:
+  push 04
+
+unregistersymbol(INJECTa)
+
+{
+// ORIGINAL CODE - INJECTION POINT: DARKSOULS.exe+18268B
+
+DARKSOULS.exe+18266F: 50              - push eax
+DARKSOULS.exe+182670: E8 4B F3 FF FF  - call DARKSOULS.exe+1819C0
+DARKSOULS.exe+182675: 83 C4 0C        - add esp,0C
+DARKSOULS.exe+182678: 89 46 34        - mov [esi+34],eax
+DARKSOULS.exe+18267B: 8B 46 28        - mov eax,[esi+28]
+DARKSOULS.exe+18267E: 8B 08           - mov ecx,[eax]
+DARKSOULS.exe+182680: 8B 51 10        - mov edx,[ecx+10]
+DARKSOULS.exe+182683: 6A 01           - push 01
+DARKSOULS.exe+182685: 56              - push esi
+DARKSOULS.exe+182686: 68 00 26 58 00  - push DARKSOULS.exe+182600
+// ---------- INJECTING HERE ----------
+DARKSOULS.exe+18268B: 6A 04           - push 04
+// ---------- DONE INJECTING  ----------
+DARKSOULS.exe+18268D: 50              - push eax
+DARKSOULS.exe+18268E: FF D2           - call edx
+DARKSOULS.exe+182690: 5E              - pop esi
+DARKSOULS.exe+182691: C3              - ret 
+DARKSOULS.exe+182692: CC              - int 3 
+DARKSOULS.exe+182693: CC              - int 3 
+DARKSOULS.exe+182694: CC              - int 3 
+DARKSOULS.exe+182695: CC              - int 3 
+DARKSOULS.exe+182696: CC              - int 3 
+DARKSOULS.exe+182697: CC              - int 3 
+}
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>30601</ID>
+                      <Description>"Replug gamepad and test if it works well"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30597</ID>
+          <Description>"Permanent (Patch once - use forever w/o CE)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>30596</ID>
+              <Description>"Ensure to place this CT in movWW folder &amp; Exit the game."</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>6</ID>
+                  <Description>"Apply"</Description>
+                  <Options moAlwaysHideChildren="1"/>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : DARKSOULS.exe
+  Version: 
+  Date   : 2023-02-16
+  Author : user
+
+  This script does blah blah blah
+}
+
+{$Lua}
+local x1 = {}
+x1.fn = "../DARKSOULS.exe"
+openFileAsProcess(x1.fn)
+x1.adr = AOBScanUnique('6A 0? 50 FF D2 5E')+1
+x1.rb = readByte(x1.adr)
+x1.pch = {4,'Restor'}
+if x1.rb == x1.pch[1] then x1.pch = {1,'Patch'} end
+writeByte(x1.adr,x1.pch[1])
+saveOpenedFile(x1.fn)
+showMessage(x1.pch[2]..'ed')
+
+{$asm}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>7</ID>
+                      <Description>"LUA-ASM"</Description>
+                      <Options moAlwaysHideChildren="1"/>
+                      <LastState/>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : DARKSOULS.exe DEBUG BUILD
+  Version: 
+  Date   : 2023-02-16
+  Author : user
+
+  This script does blah blah blah
+}
+
+{$Lua}
+local x1
+local function f1(x1)
+local fn1,bit = "../DARKSOULS.exe",32
+openFileAsProcess(fn1,bit==64)
+autoAssemble(x1[1])
+saveOpenedFile(fn1)
+showMessage(x1[2])
+end
+
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+
+x1 = {[[
+aobscan(INJECTa,6A 0? 50 FF D2 5E) // should be unique
+INJECTa:
+  push 01
+
+registersymbol(INJECTa)
+]],"patched"}
+f1(x1)
+
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+x1 = {[[
+INJECTa:
+  push 04
+
+unregistersymbol(INJECTa)
+]],"restored"}
+f1(x1)
+
+{$asm}
+
+{
+// ORIGINAL CODE - INJECTION POINT: 00181A8B
+OFFSETS ARE RVA - RELATIVE TO BASE 0x00400000 (openFileAsProcess) !!!
+00181A6F: 50              - push eax
+00181A70: E8 4B F3 FF FF  - call 00180DC0
+00181A75: 83 C4 0C        - add esp,0C
+00181A78: 89 46 34        - mov [esi+34],eax
+00181A7B: 8B 46 28        - mov eax,[esi+28]
+00181A7E: 8B 08           - mov ecx,[eax]
+00181A80: 8B 51 10        - mov edx,[ecx+10]
+00181A83: 6A 01           - push 01
+00181A85: 56              - push esi
+00181A86: 68 00 26 58 00  - push 00582600
+// ---------- INJECTING HERE ----------
+00181A8B: 6A 04           - push 04
+// ---------- DONE INJECTING  ----------
+00181A8D: 50              - push eax
+00181A8E: FF D2           - call edx
+00181A90: 5E              - pop esi
+00181A91: C3              - ret 
+00181A92: CC              - int 3 
+00181A93: CC              - int 3 
+00181A94: CC              - int 3 
+00181A95: CC              - int 3 
+00181A96: CC              - int 3 
+00181A97: CC              - int 3 
+}
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>4</ID>
+                          <Description>"V0"</Description>
+                          <LastState/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : DARKSOULS.exe
   Version: 
   Date   : 2023-01-31
   Author : user
@@ -69,6 +283,14 @@ DARKSOULS.exe+1815AA: 56                    - push esi
 DARKSOULS.exe+1815AB: E8 20 EE FF FF        - call DARKSOULS.exe+1803D0
 }
 </AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
