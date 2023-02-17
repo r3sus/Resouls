@@ -3,7 +3,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>30595</ID>
-      <Description>"PTDE Gamepad Slowing Launch Fix V1"</Description>
+      <Description>"PTDE Gamepad Slowing Launch Fix V1.1"</Description>
       <Options moHideChildren="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
@@ -128,7 +128,7 @@ openFileAsProcess(x1.fn)
 x1.adr = AOBScanUnique('6A 0? 50 FF D2 5E')+1
 x1.rb = readByte(x1.adr)
 x1.pch = {4,'Restor'}
-if x1.rb == x1.pch[1] then x1.pch = {1,'Patch'} end
+if x1.rb == x1.pch[1] then x1.pch = {5,'Patch'} end
 writeByte(x1.adr,x1.pch[1])
 saveOpenedFile(x1.fn)
 showMessage(x1.pch[2]..'ed')
@@ -173,7 +173,7 @@ end
 x1 = {[[
 aobscan(INJECTa,6A 0? 50 FF D2 5E) // should be unique
 INJECTa:
-  push 01
+  push 05
 
 registersymbol(INJECTa)
 ]],"patched"}
