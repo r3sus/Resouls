@@ -41,7 +41,7 @@
 luacall( openProcess("DARKSOULS.exe") )
 aobscanmodule(INJECTa,$process,6A 0? 50 FF D2 5E) // should be unique
 INJECTa:
-  push 01
+  push 05
 
 registersymbol(INJECTa)
 
@@ -124,6 +124,13 @@ DARKSOULS.exe+182697: CC              - int 3
 {$Lua}
 local x1 = {}
 x1.fn = "../DARKSOULS.exe"
+
+x1.sl = createStringList()
+
+x1.r,x1.ss = showSelectionList('RTTI Classes','Select the class to find instances of', x1.sl)
+if (r==-1) then return end
+sll.destroy()
+
 openFileAsProcess(x1.fn)
 x1.adr = AOBScanUnique('6A 0? 50 FF D2 5E')+1
 x1.rb = readByte(x1.adr)
