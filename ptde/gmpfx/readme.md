@@ -16,6 +16,13 @@ Launch Time with Gamepad ON:
 
 (approx.)
 
+## DLL
+
+[Download](./DiNPUT8.dll/raw)  
+[Source](../nopsb/src/ptde_gmp_fx.c)  
+Chainload feature: to use with other `dll`s, add in their name or put in folder `_load_`.  
+What it does: `8B 51 10 6A 01 56`: `01 -> 02`.  
+
 ## Videos
 
 Demonstation (problem, solution) and usage guides.  

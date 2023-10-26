@@ -1,3 +1,3 @@
-gcc -m32 -masm=intel -Wall -Wl,--enable-stdcall-fixup exports.DEF no*.c -shared -o ..\DINPUT8.dll
+gcc -m32 -masm=intel -Wall -Wl,--enable-stdcall-fixup exports.DEF %1 -shared -o %2
 ::pause
-timeout /t 15
+::timeout /t 5

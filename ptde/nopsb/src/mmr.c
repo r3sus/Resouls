@@ -9,8 +9,9 @@ return x;
 
 byte usz(void *src, byte sz)
 {
-if (sz == 'a') sz = asm_sz(src);
-if (sz == 'b') sz = sizeof(src);
+if (sz == 0) sz = asm_sz(src);
+//if (sz == 'b') sz = sizeof(src);
+DEBUG_PRINT("size: %i\n", sz);
 return sz;
 }
 
@@ -45,7 +46,7 @@ DWORD msz1 = msz(hModule);
 
 for (int i = 0; i < msz1-sz; i++) 
 if (memcmp(hModule+i,sig,sz) == 0) 
- {x = hModule+i; DEBUG_PRINT("%p %x ",x, i); break;}
+ {x = hModule+i; DEBUG_PRINT("sigscan: x = %p i = %x \n",x, i); break;}
 
  return x;
 }

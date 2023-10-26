@@ -40,14 +40,14 @@
 //code from here to '[DISABLE]' will be used to enable the cheat
 luacall( openProcess("DARKSOULS.exe") )
 aobscanmodule(INJECTa,$process,6A 0? 50 FF D2 5E) // should be unique
-INJECTa:
+INJECTa+1:
   push 05
 
 registersymbol(INJECTa)
 
 [DISABLE]
 //code from here till the end of the code will be used to disable the cheat
-INJECTa:
+INJECTa+1:
   push 04
 
 unregistersymbol(INJECTa)
