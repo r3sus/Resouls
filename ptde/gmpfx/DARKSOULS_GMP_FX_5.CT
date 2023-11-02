@@ -3,14 +3,14 @@
   <CheatEntries>
     <CheatEntry>
       <ID>30595</ID>
-      <Description>"PTDE Gamepad Slowing Launch Fix V1.1"</Description>
+      <Description>"PTDE Gamepad Slowing Launch Fix :: V1.2 &amp; V1.1"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>30598</ID>
-          <Description>"Verification script (Temporary - works until quit)"</Description>
+          <Description>"Verification script :: V1.1 :: Temporary - works until quit"</Description>
           <Options moHideChildren="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
@@ -95,7 +95,7 @@ DARKSOULS.exe+182697: CC              - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>30597</ID>
-          <Description>"Permanent (Patch once - use forever w/o CE)"</Description>
+          <Description>"Permanent :: V1.2 / V1.1 :: Patch once - use forever w/o CE"</Description>
           <Options moHideChildren="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
@@ -122,20 +122,23 @@ DARKSOULS.exe+182697: CC              - int 3
 }
 
 {$Lua}
-local x1 = {}
+local x1,x2,x3 = {},{}
 x1.fn = "../DARKSOULS.exe"
 
 x1.sl = createStringList()
-
-x1.r,x1.ss = showSelectionList('RTTI Classes','Select the class to find instances of', x1.sl)
-if (r==-1) then return end
-sll.destroy()
-
+x1.sl.add("V1.2")
+x1.sl.add("V1.1")
+x1.r,x1.ss = showSelectionList('Version','Choose any', x1.sl)
+if (x1.r==-1) then return end
+x1.sl.destroy()
+x2[1]={'6A 0? 50 FF D2 5E',1,4}
+x2[0]={'8B 51 10 6A 0? 56',4,1}
+x3=x2[x1.r]
 openFileAsProcess(x1.fn)
-x1.adr = AOBScanUnique('6A 0? 50 FF D2 5E')+1
+x1.adr = AOBScanUnique(x3[1])+x3[2]
 x1.rb = readByte(x1.adr)
-x1.pch = {4,'Restor'}
-if x1.rb == x1.pch[1] then x1.pch = {5,'Patch'} end
+x1.pch = {x3[3],'Restor'}
+if x1.rb == x1.pch[1] then x1.pch = {x3[3]+1,'Patch'} end
 writeByte(x1.adr,x1.pch[1])
 saveOpenedFile(x1.fn)
 showMessage(x1.pch[2]..'ed')
