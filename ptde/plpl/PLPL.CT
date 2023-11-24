@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"PTDE Lua Print Listener"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : DARKSOULS.exe
+  Version: 
+  Date   : 2023-11-08
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECTa,DARKSOULS.exe,83 C4 24 85 C0 0F 84 85) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+label(var)
+label(pr)
+label(format)
+label(title)
+
+newmem:
+push eax
+
+cmp [var],01
+je pr
+mov [var],01
+
+push 0
+call SetConsoleMenuClose
+
+call AllocConsole
+
+push iob+20
+push s2
+push s1
+call freopen
+add esp,c
+
+push 0
+call SetConsoleMenuClose
+
+push title
+call SetConsoleTitleA
+
+pr:
+push format
+call printf
+add esp, 4
+pop eax
+
+code:
+  add esp,24
+  test eax,eax
+  jmp return
+var:
+dd 00
+s1:
+db 'CONOUT$' 00
+s2:
+db 'w' 00
+format:
+db '%s' 0a 00
+title:
+db 'PTDE Lua Print Listener CT' 00
+
+INJECTa:
+  jmp newmem
+return:
+registersymbol(INJECTa)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECTa:
+  db 83 C4 24 85 C0
+
+unregistersymbol(INJECTa)
+dealloc(newmem)
+createThread(FreeConsole)
+
+{
+// ORIGINAL CODE - INJECTION POINT: DARKSOULS.exe.text+262396
+
+DARKSOULS.exe.text+26237D: 57                 - push edi
+DARKSOULS.exe.text+26237E: 56                 - push esi
+DARKSOULS.exe.text+26237F: E8 2C A0 FF FF     - call DARKSOULS.exe.text+25C3B0
+DARKSOULS.exe.text+262384: 6A 01              - push 01
+DARKSOULS.exe.text+262386: 6A 01              - push 01
+DARKSOULS.exe.text+262388: 56                 - push esi
+DARKSOULS.exe.text+262389: E8 52 AB FF FF     - call DARKSOULS.exe.text+25CEE0
+DARKSOULS.exe.text+26238E: 6A FF              - push -01
+DARKSOULS.exe.text+262390: 56                 - push esi
+DARKSOULS.exe.text+262391: E8 6A A3 FF FF     - call DARKSOULS.exe.text+25C700
+// ---------- INJECTING HERE ----------
+DARKSOULS.exe.text+262396: 83 C4 24           - add esp,24
+// ---------- DONE INJECTING  ----------
+DARKSOULS.exe.text+262399: 85 C0              - test eax,eax
+DARKSOULS.exe.text+26239B: 0F 84 85 00 00 00  - je DARKSOULS.exe.text+262426
+DARKSOULS.exe.text+2623A1: 8B C8              - mov ecx,eax
+DARKSOULS.exe.text+2623A3: 8D 59 01           - lea ebx,[ecx+01]
+DARKSOULS.exe.text+2623A6: 8A 11              - mov dl,[ecx]
+DARKSOULS.exe.text+2623A8: 41                 - inc ecx
+DARKSOULS.exe.text+2623A9: 84 D2              - test dl,dl
+DARKSOULS.exe.text+2623AB: 75 F9              - jne DARKSOULS.exe.text+2623A6
+DARKSOULS.exe.text+2623AD: 2B CB              - sub ecx,ebx
+DARKSOULS.exe.text+2623AF: 51                 - push ecx
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
