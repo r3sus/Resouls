@@ -22,7 +22,7 @@ Launch Time with Gamepad ON:
 [Source](../nopsb/src/ptde_gmp_fx.c)  
 Chainload feature: to use with other `dll`s, add in their name or put in folder `_load_`.  
 What it does: `8B 51 10 6A 01 56`: `01 -> 02`.  
-Also includes nologo and force offline mode.  
+Also includes nologo based on [DarkSoulsOfflineLogoSkip by NEZ64](https://github.com/NEZ64/DarkSoulsOfflineLogoSkip).   
 
 ## Videos
 

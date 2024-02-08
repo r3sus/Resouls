@@ -20,22 +20,38 @@ void *x = sigscan(gamepad_sig, sizeof(gamepad_sig));
 wp(x+4, &b1, 1);
 }
 
-void logo()
+void nologo1()
 {
-byte logo_sig [] = {0x8B, 0x86, 0x00, 0x01, 0x00, 0x00, 0x83, 0xF8, 0x03, 0x0F, 0x87},
-     logo_fix [] = {0xe9, 0x27, 0x01, 0x00, 0x00, 0x90, 0x90,};
-void *x = sigscan(logo_sig, sizeof(logo_sig));
-wp(x+0x10, logo_fix, sizeof(logo_fix));
+byte nologo1_sig [] = {0x8B, 0x86, 0x00, 0x01, 0x00, 0x00, 0x83, 0xF8, 0x03, 0x0F, 0x87},
+     nologo1_fix [] = {0xe9, 0x27, 0x01, 0x00, 0x00, 0x90, 0x90,};
+void *x = sigscan(nologo1_sig, sizeof(nologo1_sig));
+wp(x+0x10, nologo1_fix, sizeof(nologo1_fix));
 }
 
-void offline()
+void nologo2()
 {
-byte offline_sig [] = {0x80, 0xBE, 0x05, 0x01, 0x00, 0x00, 0x00, 0x5F},
-     offline_fix [] = {0x74, 0x0d,};
-void *x = sigscan(offline_sig, sizeof(offline_sig));
-wp(x+0x83-0x7B, offline_fix, sizeof(offline_fix));
+byte nologo2_sig [] = {0x80, 0xBE, 0x05, 0x01, 0x00, 0x00, 0x00, 0x5F},
+     nologo2_fix [] = {0x74, 0x0d,};
+void *x = sigscan(nologo2_sig, sizeof(nologo2_sig));
+wp(x+0x83-0x7B, nologo2_fix, sizeof(nologo2_fix));
 }
 
+void nologo() // based on DarkSoulsOfflineLogoSkip by NEZ64
+{
+nologo1();
+nologo2();
+}
+
+void asm_nopsb() { asm ("mov byte ptr [esi+0x10c],01; ret 4; "); }
+
+void nopsb()
+{
+if(fopen("nopsb","r") ) {
+void *x = sigscan(asm_psb_sig, 0);
+
+wp(x-0xFD+0x4E, asm_nopsb, 0);
+}
+}
 
 void attach_hook()
 {
@@ -44,9 +60,8 @@ void attach_hook()
 #endif
 
 gamepad();
-logo();
-offline();
-
+nologo();
+//nopsb();
 }
        
 BOOL APIENTRY DllMain(HMODULE mod, DWORD reason, LPVOID res)
@@ -54,7 +69,7 @@ BOOL APIENTRY DllMain(HMODULE mod, DWORD reason, LPVOID res)
     switch (reason) {
     case DLL_PROCESS_ATTACH:
 	attach_hook();
-        //chainload();
+        chainload();
         FreeLibrary(mod);
 	break;
     case DLL_THREAD_ATTACH:
