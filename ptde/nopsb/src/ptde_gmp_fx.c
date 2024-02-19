@@ -31,7 +31,7 @@ wp(x+0x10, nologo1_fix, sizeof(nologo1_fix));
 void nologo2()
 {
 byte nologo2_sig [] = {0x80, 0xBE, 0x05, 0x01, 0x00, 0x00, 0x00, 0x5F},
-     nologo2_fix [] = {0x74, 0x0d,};
+     nologo2_fix [] = {0x90, 0x90,};
 void *x = sigscan(nologo2_sig, sizeof(nologo2_sig));
 wp(x+0x83-0x7B, nologo2_fix, sizeof(nologo2_fix));
 }
@@ -42,16 +42,20 @@ nologo1();
 nologo2();
 }
 
+// nopsb
+#include <stdio.h>
+void asm_psb_sig() { asm ("mov [esi+0x118],bl; .byte 0xC6; "); };
+
 void asm_nopsb() { asm ("mov byte ptr [esi+0x10c],01; ret 4; "); }
 
 void nopsb()
 {
-if(fopen("nopsb","r") ) {
+if(!fopen("nopsb.txt","r") ) return;
 void *x = sigscan(asm_psb_sig, 0);
-
 wp(x-0xFD+0x4E, asm_nopsb, 0);
 }
-}
+// 
+
 
 void attach_hook()
 {
@@ -61,7 +65,7 @@ void attach_hook()
 
 gamepad();
 nologo();
-//nopsb();
+nopsb();
 }
        
 BOOL APIENTRY DllMain(HMODULE mod, DWORD reason, LPVOID res)
