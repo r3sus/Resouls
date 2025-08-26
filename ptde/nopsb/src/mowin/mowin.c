@@ -3,31 +3,42 @@
 
 void attach_hook(void)
 {
-int X, Y, cx, cy;
+int Z, X, Y, cx, cy, n;
 UINT uFlags = 1;
-char *cfg_fn = "_mowin.txt", *fmt = "%d %d %d %d";
+
+char
+*cfg_fn = "_mowin.txt",
+//*fmt = "%d %d %d %d %d",
+*lpClassName = "DARK SOULS",
+*lpWindowName = lpClassName;
+#ifdef __x86_64
+lpWindowName = "DARK SOULS™: REMASTERED";
+#endif
+
 FILE* f1 = fopen(cfg_fn,"r");
 if (f1)
 {
-fscanf(f1,fmt, &X, &Y, &cx, &cy);
-fclose(f1);
+n = fscanf(f1, "%d %d %d %d %d", &Z, &X, &Y, &cx, &cy);
 }
-else
+if (n != 5)
 {
-X = Y = cx = cy = 0;
 f1 = fopen(cfg_fn,"w");
-fprintf(f1,fmt, X, Y, cx, cy);
+Z = X = Y = cx = cy = 0;
+fprintf(f1, "0 0 0 0 0");
+//fprintf(f1, fmt, Z, X, Y, cx, cy);
 fflush(f1);
-fclose(f1);
 }
+fclose(f1);
 
-if (cx+cy>0) uFlags = 0;
+if (cx>0 && cy>0) uFlags = 0;
 
 HWND h1 = NULL;
 
 while (!h1)
-{h1 = FindWindowA("DARK SOULS",NULL);}
-SetWindowPos(h1, 0, X, Y, cx, cy, uFlags);
+{
+h1 = FindWindowA(lpClassName,lpWindowName);
+}
+SetWindowPos(h1, Z, X, Y, cx, cy, uFlags);
 //SetWindowPos(h1, 0, 0, 0, 0, 0, 1);
 }
 
