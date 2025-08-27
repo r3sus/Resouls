@@ -67,19 +67,24 @@ void attach_hook()
 char *cfg_fn = "_PTDE_fix.txt",
 *fmt = "nologo%c gmpfx%c nopsb%c mowin%c",
 nol,nos,nop,mow,n = 0;
+
+{
 FILE *f1 = fopen(cfg_fn,"r");
 if (f1)
 {
 n = fscanf(f1, fmt, &nol, &nos, &nop, &mow);
 }
+fclose(f1);
+}
+
 if (n != 4)
 {
-f1 = fopen(cfg_fn,"w");
+FILE *f1 = fopen(cfg_fn,"w");
 nol = nos = '+'; nop = mow = '-';
 fprintf(f1, fmt, nol, nos, nop, mow);
 fflush(f1);
-}
 fclose(f1);
+}
 
 if (nos=='+') gamepad();
 if (nol=='+') nologo();

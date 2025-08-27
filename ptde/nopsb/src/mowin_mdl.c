@@ -16,16 +16,18 @@ ont, nom,
 lpWindowName = "DARK SOULS™: REMASTERED";
 #endif
 
+{
 FILE* f1 = fopen(cfg_fn,"r");
 if (f1)
 {
 n = fscanf(f1, fmt, &ont, &nom, &X, &Y, &cx, &cy);
 }
 fclose(f1);
+}
 
 if (n != 6)
 {
-f1 = fopen(cfg_fn,"w");
+FILE* f1 = fopen(cfg_fn,"w");
 ont = nom = '-'; X = Y = cx = cy = 0;
 fprintf(f1, fmt, ont, nom, X, Y, cx, cy);
 fflush(f1);
