@@ -50,12 +50,13 @@ void asm_nopsb() { asm ("mov byte ptr [esi+0x10c],01; ret 4; "); }
 
 void nopsb()
 {
-if(!fopen("nopsb.txt","r") ) return;
+//if(!fopen("nopsb.txt","r") ) return;
 void *x = sigscan(asm_psb_sig, 0);
 wp(x-0xFD+0x4E, asm_nopsb, 0);
 }
-// 
+//
 
+#include "mowin_mdl.c"
 
 void attach_hook()
 {
@@ -63,18 +64,43 @@ void attach_hook()
  AllocConsole(); freopen("CONOUT$", "w", stdout);
 #endif
 
-gamepad();
-nologo();
-nopsb();
+char *cfg_fn = "_PTDE_fix.txt",
+*fmt = "nologo%c gmpfx%c nopsb%c mowin%c",
+nol,nos,nop,mow,n = 0;
+FILE *f1 = fopen(cfg_fn,"r");
+if (f1)
+{
+n = fscanf(f1, fmt, &nol, &nos, &nop, &mow);
 }
-       
+if (n != 4)
+{
+f1 = fopen(cfg_fn,"w");
+nol = nos = '+'; nop = mow = '-';
+fprintf(f1, fmt, nol, nos, nop, mow);
+fflush(f1);
+}
+fclose(f1);
+
+if (nos=='+') gamepad();
+if (nol=='+') nologo();
+if (nop=='+') nopsb();
+if (mow=='+') mowin();
+}
+
+void OnAttach(HMODULE hModule) {
+attach_hook();
+FreeLibraryAndExitThread( hModule, 0 );
+ExitThread( 0 );
+}
+
 BOOL APIENTRY DllMain(HMODULE mod, DWORD reason, LPVOID res)
 {
     switch (reason) {
     case DLL_PROCESS_ATTACH:
-	attach_hook();
+  	/*attach_hook();
         chainload();
-        FreeLibrary(mod);
+        FreeLibrary(mod);*/
+        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)OnAttach, mod, 0, NULL);
 	break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
