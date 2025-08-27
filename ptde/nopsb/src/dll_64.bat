@@ -1,0 +1,1 @@
+gcc -m64 -masm=intel -Wall %1 -shared -o %2

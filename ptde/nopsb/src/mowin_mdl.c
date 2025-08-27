@@ -8,7 +8,7 @@ UINT uFlags = SWP_NOSIZE;
 
 char
 ont, nom,
-*cfg_fn = "_PTDE_fix_mowin.txt",
+*cfg_fn = "_mowin.txt",
 *fmt = "onTop%c noMove%c moveTo=%dx%d reSize=%dx%d",
 *lpClassName = "DARK SOULS",
 *lpWindowName = lpClassName;
